@@ -1,8 +1,11 @@
 package com.tasanah.springrest.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import com.tasanah.springrest.dto.ResponseData;
+import com.tasanah.springrest.dto.SearchData;
 import com.tasanah.springrest.dto.SupplierData;
 import com.tasanah.springrest.models.entities.Supplier;
 import com.tasanah.springrest.services.SupplierService;
@@ -77,5 +80,25 @@ public class SupplierController {
         responseData.setPayload(supplierService.save(supplier));
 
         return ResponseEntity.ok(responseData);
+    }
+
+    @PostMapping("/search/byemail")
+    public Supplier findByEmail(@RequestBody SearchData searchData) {
+        return supplierService.findByEmail(searchData.getSearchKey());
+    }
+
+    @PostMapping("/search/byname")
+    public List<Supplier> findByName(@RequestBody SearchData searchData) {
+        return supplierService.findByName(searchData.getSearchKey());
+    }
+
+    @PostMapping("/search/bynamestartwith")
+    public List<Supplier> findByNameStartWith(@RequestBody SearchData searchData) {
+        return supplierService.findByNameStartWith(searchData.getSearchKey());
+    }
+
+    @PostMapping("/search/bynameoremail")
+    public List<Supplier> findByNameOrEmail(@RequestBody SearchData searchData) {
+        return supplierService.findByNameOrEmail(searchData.getSearchKey(), searchData.getOtherSearchKey());
     }
 }
