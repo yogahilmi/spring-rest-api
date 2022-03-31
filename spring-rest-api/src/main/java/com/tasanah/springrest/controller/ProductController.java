@@ -1,6 +1,8 @@
 package com.tasanah.springrest.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import javax.validation.Valid;
 
@@ -92,16 +94,22 @@ public class ProductController {
 
     @PostMapping("/search/namelike")
     public List<Product> getProductByNameLike(@RequestBody SearchData searchData) {
-        return productService.findByProductNameLike(searchData.getSearchKey());
+        return StreamSupport.stream(productService.findByProductNameLike(searchData.getSearchKey())
+            .spliterator(), false)
+            .collect(Collectors.toList());
     }
 
     @GetMapping("/search/category/{categoryId}")
     public List<Product> getProductByCategory(@PathVariable("categoryId") Long categoryId) {
-        return productService.findByCategory(categoryId);
+        return StreamSupport.stream(productService.findByCategory(categoryId)
+            .spliterator(), false)
+            .collect(Collectors.toList());
     } 
 
     @GetMapping("/search/supplier/{supplierId}")
     public List<Product> getProductBySupplier(@PathVariable("supplierId") Long supplierId) {
-        return productService.findBySupplier(supplierId);
+        return StreamSupport.stream(productService.findBySupplier(supplierId)
+            .spliterator(), false)
+            .collect(Collectors.toList());
     }
 }
