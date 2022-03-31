@@ -34,6 +34,6 @@ docker-compose down --rmi all
 
 To see full API documentation, you can access to Swagger UI
 
-```http://localhost:6868/swagger-ui/
-
+```bash
+http://localhost:6868/swagger-ui/
 ```
