@@ -1,5 +1,12 @@
 # Spring Boot RestAPI and MySQL with Docker
 
+## Specification
+- Java 8
+- Spring Boot 2.5.4
+- MySQL 5.7
+- Swagger2
+- SwaggerUI 3.0.0
+
 ## Run the System
 
 We can easily run the whole with only a single command:
