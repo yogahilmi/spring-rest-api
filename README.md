@@ -29,3 +29,11 @@ If you need to stop and remove all containers, networks, and all images used by 
 ```bash
 docker-compose down --rmi all
 ```
+
+## Swagger UI API Documentation
+
+To see full API documentation, you can access to Swagger UI
+
+```http://localhost:6868/swagger-ui/
+
+```

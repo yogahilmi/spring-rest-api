@@ -32,10 +32,10 @@ public class SwaggerConfig {
             "Spring Boot RestAPI", 
             "Mini Project Spring Boot RestAPI and MySQL with Docker", 
             "v1.0", 
-            "", 
+            "http://swagger.io/terms/", 
             new Contact("Yoga Hilmi Tasanah", "https://linkedin.com/in/yogahilmi", "yogahilmi@gmail.com"), 
-            "",
-            "",
+            "Apache 2.0",
+            "http://www.apache.org/licenses/LICENSE-2.0.html",
             Collections.emptyList()
         );
         return apiInfo;
